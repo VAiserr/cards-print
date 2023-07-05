@@ -1,0 +1,27 @@
+.container {
+
+    &__select {
+        display: flex;
+        justify-content: flex-start;
+        align-items: end;
+        gap: 20px;
+
+        #names {
+            width: auto;
+            padding: 10px;
+        }
+
+        button {
+            background-color: #333333;
+            color: aliceblue;
+            padding: 10px;
+            &:hover {
+                background-color: #444;
+            }
+        }
+
+        @media print {
+            display: none;
+        }
+    }
+}
