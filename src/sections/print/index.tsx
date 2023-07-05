@@ -1,4 +1,4 @@
-import NameCard, { INameCardData } from 'cards/name_card'
+// import { INameCardData } from 'cards/name_card'
 import Container from 'components/container'
 import Section from 'components/section'
 import React from 'react'
@@ -9,11 +9,6 @@ interface IPrintSectionProps {
 }
 
 export default function PrintSection({cards}: IPrintSectionProps) {
-    const data: INameCardData = {
-        username: "test",
-        ldap: "test",
-        FIO: "TEST test tests"
-      }
   return (
     <Section sectionName='print'>
         <Container className='container__print'>

@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 // import styles from './style.module.scss'
 import './style.scss'
 // import 'imgs/card-name-logo.png'

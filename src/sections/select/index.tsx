@@ -16,10 +16,6 @@ export default function SelectSection({generateCards}: ISelectSectionProps) {
     setTextareaValue(e.target.value)
   }
 
-  const getText = async (): Promise<string> => {
-    return await textareaValue
-  }
-
   const onClick = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
 

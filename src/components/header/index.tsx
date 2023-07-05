@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Container from 'components/container'
 import Section from 'components/section'
 import './style.scss'
