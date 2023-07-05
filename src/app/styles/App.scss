@@ -1,0 +1,20 @@
+// @import "../../shared/style/variables.scss";
+@import "null";
+@import "fonts";
+
+body {
+    font-family: "Roboto";
+    background-color: #F1F1F1;
+
+    &.blocked {
+        overflow: hidden;
+    }
+    
+}
+@media print {
+    html, body{
+		height: 297mm;
+		width: 210mm;
+        background-color: #fff;
+	}
+}
