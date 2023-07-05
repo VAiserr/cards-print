@@ -6,11 +6,16 @@
         background-color: #fff;
 
         width: 8cm;
+        max-width: fit-content;
         height: 3cm;
 
         
         .card-header {
             background-color: rgb(117, 117, 233);
+            width: 100%;
+            img {
+                width: 100%;
+            }
         }
         
         .card-body {
@@ -18,9 +23,13 @@
             height: 2cm;
             border: #003055 solid 2px;
             border-top: none;
-            padding: 8px 10px;
+            padding-top: 8px;
             div {
-                padding-bottom: 5px;
+                padding: 0 5px;
+                margin-bottom: 5px;
+                // word-wrap: break-word;
+                white-space: nowrap;
+                overflow: hidden;
             }
             // line-height: 10px;
         }

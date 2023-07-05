@@ -13,6 +13,7 @@ export default function SelectSection({generateCards}: ISelectSectionProps) {
   const [textareaValue, setTextareaValue] = React.useState<string>("")
 
   const textAreaHandler = (e: any) => {
+    localStorage.setItem("text",JSON.stringify(textareaValue))
     setTextareaValue(e.target.value)
   }
 

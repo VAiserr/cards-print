@@ -17,7 +17,7 @@ export default function NameCard({data}: INameCardProps) {
     <div className={"card card__name"}>
         <div className={"card-header"}>
             {/* <h4 className="card-title">IT SERVICE DESK</h4> */}
-            <img src="imgs/card-name-logo.png" alt="" />
+            <img src="imgs/name-logo.png" alt="" />
         </div>
         <div className="card-body">
             <div id="fio">Ф.И.О.: {data.FIO}</div>
