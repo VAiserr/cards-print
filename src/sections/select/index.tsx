@@ -39,7 +39,7 @@ export default function SelectSection({generateCards}: ISelectSectionProps) {
   }
   React.useEffect(() => {
     console.log(cardsData)
-    generateCards(cardsData.map(e => <NameCard data={e}/>))
+    generateCards(cardsData.map((e, i) => <NameCard key={i} data={e}/>))
   },[cardsData])
 
   return (
