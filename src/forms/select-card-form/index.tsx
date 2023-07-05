@@ -10,7 +10,7 @@ export default function SelectCardForm({selectForm}: ISelectCardFormProps) {
 
     const selectHandler = (e: React.FormEvent): void => {
         e.preventDefault()
-        
+        selectForm("")
     }
   return (
     <CardForm formName='select'>
