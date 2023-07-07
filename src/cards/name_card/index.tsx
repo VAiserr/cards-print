@@ -1,21 +1,24 @@
 import React from 'react'
 // import styles from './style.module.scss'
 import './style.scss'
+import { INameCardData, MiniNameCard } from './model'
 // import 'imgs/card-name-logo.png'
 
-export interface INameCardData {
-    FIO?: string,
-    username?: string,
-    ldap?: string
-}
-export interface INameCardProps {
-    data: INameCardData
-    key: React.Key
-}
+// export interface INameCardData {
+//     FIO?: string,
+//     username?: string,
+//     ldap?: string
+// }
+// export interface INameCardProps {
+//     card: MiniNameCard
+//     key: React.Key
+// }
 
-export default function NameCard({data, key}: INameCardProps) {
+export default function NameCard(card: MiniNameCard) {
+    const data: INameCardData = card.getData()
+
   return (
-    <div className={"card card__name"} key={key}>
+    <div className={"card card__name"} key={data._id}>
         <div className={"card-header"}>
             {/* <h4 className="card-title">IT SERVICE DESK</h4> */}
             <img src="imgs/name-logo.png" alt="" />

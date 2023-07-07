@@ -3,16 +3,14 @@ import './styles/App.scss'
 import SelectSection from 'sections/select'
 import PrintSection from 'sections/print'
 import React from 'react'
+import { Card } from 'cards/model'
 
 export default function App() {
-  const [cards, setCards] = React.useState<React.ReactNode[]>([])
+  const [cards, setCards] = React.useState<Card>([])
 
-  const generateCards = (cards: React.ReactNode[]) => {
-    setCards(cards)
-  }
   return (
     <PageTemplate>
-      <SelectSection generateCards={generateCards}/>
+      <SelectSection setCards={setCards}/>
       <PrintSection cards={cards}/>
     </PageTemplate>
   )

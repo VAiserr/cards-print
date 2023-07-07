@@ -1,19 +1,20 @@
 import Section from 'components/section'
 import React from 'react'
 import './style.scss'
-import NameCard, { INameCardData } from 'cards/name_card'
+import NameCard from 'cards/name_card'
 import Container from 'components/container'
+import { Card } from 'cards/model'
+import { MiniNameCard } from 'cards/name_card/model'
 
 interface ISelectSectionProps {
-  generateCards: (cards: React.ReactNode[]) => void
+  setCards: React.Dispatch<React.SetStateAction<Card>>
 }
 
-export default function SelectSection({generateCards}: ISelectSectionProps) {
-  const [cardsData, setCardsData] = React.useState<INameCardData[]>([])
+export default function SelectSection({setCards}: ISelectSectionProps) {
   const [textareaValue, setTextareaValue] = React.useState<string>("")
 
   const textAreaHandler = (e: any) => {
-    localStorage.setItem("text",JSON.stringify(textareaValue))
+    // localStorage.setItem("text",JSON.stringify(textareaValue))
     setTextareaValue(e.target.value)
   }
 
@@ -21,26 +22,18 @@ export default function SelectSection({generateCards}: ISelectSectionProps) {
     e.preventDefault()
 
     const rows = textareaValue.split("\n")
-    setCardsData([])
-    const data: INameCardData[] = []
-    for (const row of rows) {
-      const fio = row.split(";")[0] || "";
-      const username = row.split(";")[1] || "";
-      const ldap = row.split(";")[2] || "";
+    setCards([])
+    const cardArr: Card[] = []
+    for (let i = 0; i < rows.length; i++) {
+      const fio = rows[i].split(";")[0] || "";
+      const username = rows[i].split(";")[1] || "";
+      const ldap = rows[i].split(";")[2] || "";
       
-      data.push({
-        FIO: fio,
-        username,
-        ldap
-      })
+      cardArr.push(new MiniNameCard({_id: i + "", FIO: fio, username, ldap}))
     }
-    setCardsData(data)
+    setCards(cardArr)
     
   }
-  React.useEffect(() => {
-    console.log(cardsData)
-    generateCards(cardsData.map((e, i) => <NameCard key={i} data={e}/>))
-  },[cardsData])
 
   return (
     <Section sectionName="select">
