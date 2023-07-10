@@ -11,7 +11,7 @@ export interface ICardData {
 
 export abstract class Card {
     cardType: CardTypes;
-    private cardData: ICardData;
+    cardData: ICardData;
 
     constructor(cardType: CardTypes, cardData: ICardData) {
         this.cardType = cardType;

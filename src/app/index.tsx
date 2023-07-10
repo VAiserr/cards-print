@@ -6,7 +6,7 @@ import React from 'react'
 import { Card } from 'cards/model'
 
 export default function App() {
-  const [cards, setCards] = React.useState<Card>([])
+  const [cards, setCards] = React.useState<Card[]>([])
 
   return (
     <PageTemplate>

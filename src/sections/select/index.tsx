@@ -7,7 +7,7 @@ import { Card } from 'cards/model'
 import { MiniNameCard } from 'cards/name_card/model'
 
 interface ISelectSectionProps {
-  setCards: React.Dispatch<React.SetStateAction<Card>>
+  setCards: React.Dispatch<React.SetStateAction<Card[]>>
 }
 
 export default function SelectSection({setCards}: ISelectSectionProps) {

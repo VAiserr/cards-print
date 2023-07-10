@@ -7,7 +7,22 @@ export interface INameCardData extends ICardData {
 }
 
 export class MiniNameCard extends Card {
+
     constructor(data: INameCardData) {
-        super(CardTypes.NAME_CARD_MINI, data)
+        const _data: INameCardData = {
+            _id: data._id,
+            FIO: data.FIO || "",
+            username: data.username || "",
+            ldap: data.ldap || ""
+        }
+        super(CardTypes.NAME_CARD_MINI, _data);
+    }
+
+    override getData(): INameCardData {
+        return this.cardData as INameCardData;
+    }
+
+    override setData(data: INameCardData): void {
+        this.cardData = data;
     }
 }
