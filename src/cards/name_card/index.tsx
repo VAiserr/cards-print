@@ -14,7 +14,7 @@ import { INameCardData, MiniNameCard } from './model'
 //     key: React.Key
 // }
 
-export default function NameCard(card: MiniNameCard) {
+export default function MiniNameCardComponent(card: MiniNameCard) {
     const data: INameCardData = card.getData()
 
   return (
