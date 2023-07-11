@@ -5,6 +5,13 @@ export enum CardTypes {
     SERVICE_DESK_CARD,
 }
 
+export const cardsList = [
+    { title: "Маленькая именная карта", value: CardTypes.NAME_CARD_MINI },
+    { title: "Именная карта", value: CardTypes.NAME_CARD },
+    { title: "WiFi карта", value: CardTypes.WIFI_CARD },
+    { title: "Карта Servise Desk", value: CardTypes.SERVICE_DESK_CARD }
+]
+
 export interface ICardData {
     _id: string
 }

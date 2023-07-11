@@ -3,22 +3,19 @@ import React from "react";
 import "./style.scss";
 import MiniNameCardComponent from "cards/name_card";
 import Container from "components/container";
-import { Card, CardTypes } from "cards/model";
+import { Card, CardTypes, cardsList } from "cards/model";
 import { MiniNameCard } from "cards/name_card/model";
 import CustomSelect, { TCustomOption } from "components/select";
+import CardEditor from "card-editors";
 
 interface ISelectSectionProps {
+  cards: Card[];
   setCards: React.Dispatch<React.SetStateAction<Card[]>>;
 }
 
-export default function SelectSection({ setCards }: ISelectSectionProps) {
+export default function SelectSection({ setCards, cards }: ISelectSectionProps) {
   const [textareaValue, setTextareaValue] = React.useState<string>("");
-  const [selectedCard, setSelectedCard] = React.useState<TCustomOption | null>(
-    null
-  );
-  const cards: TCustomOption[] = [
-    { title: "Именная карточка", value: CardTypes.NAME_CARD_MINI },
-  ];
+  const [selectedOption, setSelectedOption] = React.useState<TCustomOption | null>(null);
 
   const textAreaHandler = (e: any) => {
     // localStorage.setItem("text",JSON.stringify(textareaValue))
@@ -42,33 +39,19 @@ export default function SelectSection({ setCards }: ISelectSectionProps) {
   };
 
   const selectHandler = (selected: TCustomOption["value"]) => {
-    setSelectedCard(cards.find((e) => e.value == selected) || null);
+    setSelectedOption(cardsList.find((e) => e.value == selected) || null);
   };
 
   return (
     <Section sectionName="select">
       <CustomSelect
-        selected={selectedCard}
+        selected={selectedOption}
         placeholder="Выберите карточку"
-        options={cards}
+        options={cardsList}
         onChange={selectHandler}
         status="default"
       />
-      <Container className="container__select">
-        <div className="form">
-          <textarea
-            rows={5}
-            cols={44}
-            name="names"
-            id="names"
-            value={textareaValue}
-            onChange={textAreaHandler}
-          ></textarea>
-        </div>
-        <div className="button" onClick={onClick}>
-          <button>Create</button>
-        </div>
-      </Container>
+      {selectedOption && <CardEditor cardType={selectedOption?.value} cards={cards} setCards={setCards} />}
     </Section>
   );
 }
