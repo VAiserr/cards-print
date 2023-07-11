@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function MiniNameCardEditor() {
   return (
-    <div>MiniNameCardEditor</div>
+    <ul className='editor-list'></ul>
   )
 }

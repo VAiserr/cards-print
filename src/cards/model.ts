@@ -13,7 +13,7 @@ export const cardsList = [
 ]
 
 export interface ICardData {
-    _id: string
+    _id: string;
 }
 
 export abstract class Card {
