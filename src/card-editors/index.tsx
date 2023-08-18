@@ -2,7 +2,7 @@ import { Card, CardTypes } from 'cards/model'
 import Container from 'components/container'
 import './style.scss'
 import React from 'react'
-import MiniNameCardEditor from './mini-name-card-editor'
+import MiniNameCardEditor from './mini-name-card'
 
 export interface ICardEditorProps {
     cardType: CardTypes
